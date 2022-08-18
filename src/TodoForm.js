@@ -13,7 +13,7 @@ export default function TodoForm(props) {
         />
         <div className="validation">{props.validation}</div>
         <div className="actions">
-          <button onClick={props.onCancel} className="cancel">
+          <button type="button" onClick={props.onCancel} className="cancel">
             Cancel
           </button>
           <input className="add" type="submit" value="Add Task" />

@@ -45,6 +45,12 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+## TODOS
+
+- Implement Drag and drop
+- Implement Sorting of Todos
+- Add Importance To each Todo
+
 ## License
 
 This project is licensed under the MIT license.
