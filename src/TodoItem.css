@@ -9,7 +9,7 @@ li {
   color: #b6b2c2;
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  
+  animation: appear 0.25s linear;
 }
 
 .task-container {
