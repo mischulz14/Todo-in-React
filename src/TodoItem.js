@@ -3,6 +3,7 @@ import "./TodoItem.css";
 import { IoCheckmark, IoClose, IoEllipse } from "react-icons/io5";
 
 export default function TodoItem(props) {
+    let test = "red"
   const [completed, setCompleted] = useState(false);
   return (
     <>
