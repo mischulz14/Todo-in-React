@@ -1,4 +1,4 @@
-.tachado{
-    text-decoration: line-through;
-    background-color: aliceblue;
+.todo-list {
+  width: 100%;
+  padding: 3rem;
 }

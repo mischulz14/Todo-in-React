@@ -1,0 +1,59 @@
+.form {
+  display: block;
+  width: 60vw;
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 22px;
+  background: #67646d;
+  box-shadow: 20px 20px 60px #58555d, -20px -20px 60px #76737d;
+}
+
+.todo-input {
+  display: inline-block;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  outline: transparent;
+  border: none;
+  margin-bottom: 1.5rem;
+  background-color: #58555d;
+  color: rgb(181, 181, 181);
+  font-size: 1.6rem;
+}
+
+.actions {
+  text-align: right;
+}
+
+.cancel,
+.add {
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.2s linear;
+  font-size: 1.2rem;
+}
+
+.cancel:hover , .add:hover {
+    transform: scale(1.1);
+}
+
+.cancel {
+  border: none;
+  background: #e66060;
+  box-shadow: 2px 2px 16px #c45252, -2px -2px 16px #ff6e6e;
+  color: antiquewhite;
+  margin-right: 1rem;
+}
+
+.add {
+  background: #60e670;
+  box-shadow: 2px 2px 16px #52c45f, -2px -2px 16px #6eff81;
+  color: rgb(74, 70, 63);
+}
+
+.validation {
+  text-align: center;
+  color: #ff6e6e;
+  margin-bottom: 1.2rem;
+}

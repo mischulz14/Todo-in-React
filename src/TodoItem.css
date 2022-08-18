@@ -1,0 +1,64 @@
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #67646d;
+  box-shadow: 5px 5px 20px #58555d, -5px -5px 20px #76737d;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: #b6b2c2;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.task-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-text {
+  margin-left: 2rem;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.delete,
+.done {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.1s linear;
+  font-size: 1.2rem;
+}
+
+.delete:hover,
+.done:hover {
+  transform: scale(1.1);
+}
+
+.delete {
+  border: none;
+  background: #e66060;
+  box-shadow: 2px 2px 16px #c45252, -2px -2px 16px #ff6e6e;
+  color: antiquewhite;
+}
+
+.done {
+  background: #60e670;
+  box-shadow: 2px 2px 16px #52c45f, -2px -2px 16px #6eff81;
+  color: rgb(74, 70, 63);
+}
+
+.tachado {
+  text-decoration: line-through;
+  background-color: aliceblue;
+}

@@ -7,9 +7,10 @@ function App() {
   const [todo, setTodo] = useState("");
   const [todoTaskList, setTodoTaskList] = useState([]);
   const [validation, setValidation] = useState("");
-  const [clicked, setClicked] = useState(false)
+  const [clicked, setClicked] = useState(false);
 
   function handleTodoChange(event) {
+    event.preventDefault();
     const newTodo = event.target.value;
     setTodo(newTodo);
   }
@@ -22,35 +23,47 @@ function App() {
       return;
     }
 
-    setTodoTaskList([...todoTaskList, {
-      id: todoTaskList.length,
-      task: todo
-    }]);
+    setTodoTaskList([
+      ...todoTaskList,
+      {
+        id: todoTaskList.length,
+        task: todo,
+      },
+    ]);
 
     setTodo("");
-    setValidation("")
+    setValidation("");
   }
 
-  function handleTodoDelete(id){
+  function handleTodoDelete(id) {
+    setTodoTaskList(todoTaskList.filter((todo) => todo.id !== id));
+  }
 
-    setTodoTaskList(todoTaskList.filter(todo => todo.id !== id))
-
+  function handleSetClicked(event) {
+    event.preventDefault();
+    setClicked((prev) => !prev);
+    setTodo("")
   }
 
   return (
     <div className="App">
-      <button onClick={() => setClicked(prev => !prev)}>+</button>
-      {!clicked && <div>Add Todo</div>}
-      {clicked && (
-        <TodoForm
-          onTodoChange={handleTodoChange}
-          onFormSubmit={handleFormSubmit}
-          todo={todo}
-          validation={validation}
-        />
-      )}
+      <div className="container">
+        <button className="plus-btn" onClick={handleSetClicked}>
+          <span className={clicked && "rotate"}>+</span>
+        </button>
+        {!clicked && <div className="add-text">Add Todo</div>}
+        {clicked && (
+          <TodoForm
+            onTodoChange={handleTodoChange}
+            onFormSubmit={handleFormSubmit}
+            todo={todo}
+            validation={validation}
+            onCancel={handleSetClicked}
+          />
+        )}
 
-      <TodoList todoTaskList={todoTaskList} onTodoDelete={handleTodoDelete} />
+        <TodoList todoTaskList={todoTaskList} onTodoDelete={handleTodoDelete} />
+      </div>
     </div>
   );
 }
