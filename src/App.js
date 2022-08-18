@@ -43,6 +43,7 @@ function App() {
     event.preventDefault();
     setClicked((prev) => !prev);
     setTodo("")
+    setValidation("")
   }
 
   return (

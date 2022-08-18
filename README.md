@@ -47,6 +47,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## TODOS
 
+- implement local storage
 - Implement Drag and drop
 - Implement Sorting of Todos
 - Add Importance To each Todo
