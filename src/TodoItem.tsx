@@ -1,13 +1,12 @@
-import { useState } from "react";
+import {Dispatch, SetStateAction, useState} from "react";
 import "./TodoItem.css";
 import { IoCheckmark, IoClose, IoEllipse } from "react-icons/io5";
 
-export default function TodoItem(props) {
-    let test = "red"
-  const [completed, setCompleted] = useState(false);
+export default function TodoItem(props: {onTodoDelete: (index: number) => void, todo: {id: number, task: string}}) {
+  const [completed, setCompleted]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
   return (
     <>
-      <li key={props.todo.id} className={completed && "tachado"}>
+      <li key={props.todo.id} className={completed ? "tachado" : ""}>
         <div className="task-container">
         <IoEllipse />
         <span className="task-text">{props.todo.task}</span>
@@ -16,7 +15,7 @@ export default function TodoItem(props) {
         <div className="task-actions">
           <button
             className="done"
-            onClick={() => setCompleted((prev) => !prev)}
+            onClick={() => setCompleted((prev: boolean) => !prev)}
           >
             <IoCheckmark />
           </button>
