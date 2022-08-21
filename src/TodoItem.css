@@ -61,11 +61,8 @@ li {
   color: rgb(74, 70, 63);
 }
 
-.tachado {
+.line-through {
   text-decoration: line-through;
   background-color: aliceblue;
 }
 
-.red {
-    background-color: red;
-}

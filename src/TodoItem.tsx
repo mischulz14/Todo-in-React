@@ -6,7 +6,7 @@ export default function TodoItem(props: {onTodoDelete: (index: number) => void, 
   const [completed, setCompleted]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
   return (
     <>
-      <li key={props.todo.id} className={completed ? "tachado" : ""}>
+      <li key={props.todo.id} className={completed ? "line-through" : ""}>
         <div className="task-container">
         <IoEllipse />
         <span className="task-text">{props.todo.task}</span>
