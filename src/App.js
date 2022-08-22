@@ -1,24 +1,47 @@
-import React, {ChangeEvent, FormEvent, useState} from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 
 function App() {
-
-  const initialTodos : {id:number, task: string}[] = [];
-
+  // state stuff
   const [todo, setTodo] = useState("");
-  const [todoTaskList, setTodoTaskList] = useState(initialTodos);
+  const [todoTaskList, setTodoTaskList] = useState(() => {
+    if (localStorage.getItem("todoTaskList") === null) {
+      return [];
+    } else {
+      return JSON.parse(localStorage.getItem("todoTaskList"));
+    }
+  });
   const [validation, setValidation] = useState("");
   const [clicked, setClicked] = useState(false);
 
-  function handleTodoChange(event: ChangeEvent<any>) {
+  // saving and getting data from local storage
+
+  useEffect(() => {
+    let todoListFromLocalStorage = JSON.parse(
+      localStorage.getItem("todoTaskList")
+    );
+    setTodoTaskList(todoListFromLocalStorage);
+  }, []);
+
+  useEffect(() => {
+    // saving everytime the todo gets changed
+    const saveLocalTodos = () => {
+      localStorage.setItem("todoTaskList", JSON.stringify(todoTaskList));
+    };
+
+    saveLocalTodos();
+  }, [todoTaskList]);
+
+  // functions
+  function handleTodoChange(event) {
     event.preventDefault();
     const newTodo = event.target.value;
     setTodo(newTodo);
   }
 
-  function handleFormSubmit(event: FormEvent<any>) {
+  function handleFormSubmit(event) {
     event.preventDefault();
 
     if (todo === "") {
@@ -26,27 +49,28 @@ function App() {
       return;
     }
 
-    setTodoTaskList([
-      ...todoTaskList,
+    setTodoTaskList((prevList) => [
       {
-        id: todoTaskList.length,
+        id: Math.random() * 1000,
         task: todo,
+        completed: false,
       },
+      ...prevList,
     ]);
 
     setTodo("");
     setValidation("");
   }
 
-  function handleTodoDelete(id: number) {
+  function handleTodoDelete(id) {
     setTodoTaskList(todoTaskList.filter((todo) => todo.id !== id));
   }
 
-  function handleSetClicked(event: React.MouseEvent<HTMLButtonElement>) {
+  function handleSetClicked(event) {
     event.preventDefault();
     setClicked((prev) => !prev);
-    setTodo("")
-    setValidation("")
+    setTodo("");
+    setValidation("");
   }
 
   return (
@@ -66,7 +90,11 @@ function App() {
           />
         ) : null}
 
-        <TodoList todoTaskList={todoTaskList} onTodoDelete={handleTodoDelete} />
+        <TodoList
+          todoTaskList={todoTaskList}
+          onTodoDelete={handleTodoDelete}
+          setTodoTaskList={setTodoTaskList}
+        />
       </div>
     </div>
   );

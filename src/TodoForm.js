@@ -1,13 +1,7 @@
 import "./TodoForm.css";
-import {ChangeEventHandler, FormEventHandler, MouseEventHandler} from "react";
 
-export default function TodoForm(props: {
-    onTodoChange: ChangeEventHandler<any>,
-    todo: string,
-    onFormSubmit: FormEventHandler<any>,
-    validation: string,
-    onCancel: MouseEventHandler<any>
-}) {
+
+export default function TodoForm(props) {
     const {onTodoChange, todo, onFormSubmit, validation, onCancel} = props;
 
   return (
