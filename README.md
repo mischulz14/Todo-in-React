@@ -1,7 +1,5 @@
 # A Simple Todo App in React
 
-This project was created by [Gleethos](https://github.com/Gleethos) and [mischulz14](https://github.com/mischulz14).
-
 ## Available Scripts
 
 In the project directory, you can run:

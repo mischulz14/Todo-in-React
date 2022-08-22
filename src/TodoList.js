@@ -7,12 +7,24 @@ export default function TodoList(props) {
   function handleTodoFilter(event) {
     const filterOption = event.target.value;
 
-    if (filterOption === "all") setTodoFilter("all");
-
-    if (filterOption === "active") setTodoFilter("active");
-
-    if (filterOption === "completed") setTodoFilter("completed");
+    setTodoFilter(filterOption);
   }
+
+  // ?? why doesnt this work????
+  // const showFilteredTodos = (filterOption) => {
+  //   props.todoTaskList.map((todo) => {
+  //     if (todo[filterOption] === true)
+  //       return (
+  //         <TodoItem
+  //           todoTaskList={props.todoTaskList}
+  //           onTodoDelete={props.onTodoDelete}
+  //           todo={todo}
+  //           key={todo.id}
+  //           setTodoTaskList={props.setTodoTaskList}
+  //         />
+  //       );
+  //   });
+  // };
 
   return (
     <>
