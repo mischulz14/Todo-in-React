@@ -10,22 +10,6 @@ export default function TodoList(props) {
     setTodoFilter(filterOption);
   }
 
-  // ?? why doesnt this work????
-  // const showFilteredTodos = (filterOption) => {
-  //   props.todoTaskList.map((todo) => {
-  //     if (todo[filterOption] === true)
-  //       return (
-  //         <TodoItem
-  //           todoTaskList={props.todoTaskList}
-  //           onTodoDelete={props.onTodoDelete}
-  //           todo={todo}
-  //           key={todo.id}
-  //           setTodoTaskList={props.setTodoTaskList}
-  //         />
-  //       );
-  //   });
-  // };
-
   return (
     <>
       <label htmlFor="todo-select">Filter Todos:</label>
