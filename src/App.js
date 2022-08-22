@@ -7,11 +7,9 @@ function App() {
   // state stuff
   const [todo, setTodo] = useState("");
   const [todoTaskList, setTodoTaskList] = useState(() => {
-    if (localStorage.getItem("todoTaskList") === null) {
-      return [];
-    } else {
+    
       return JSON.parse(localStorage.getItem("todoTaskList"));
-    }
+    
   });
   const [validation, setValidation] = useState("");
   const [clicked, setClicked] = useState(false);
