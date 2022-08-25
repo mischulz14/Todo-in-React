@@ -7,7 +7,7 @@
 
 body {
   background: #67646d;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .container {
@@ -34,7 +34,7 @@ body {
   transform-origin: center;
 }
 
-#plus-btn-icon{
+#plus-btn-icon {
   transition: all 0.2s ease-in-out;
 }
 
@@ -45,7 +45,6 @@ body {
 .plus-btn:hover ~ .add-text {
   transform: scale(1.05);
 }
-
 
 span {
   transition: all 0.2s ease-in-out;
@@ -60,5 +59,3 @@ span {
   padding: 1rem;
   transition: all 0.2s ease-in-out;
 }
-
-
