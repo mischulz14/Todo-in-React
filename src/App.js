@@ -4,6 +4,8 @@ import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import { IoAdd } from "react-icons/io5";
 
+document.title = "Todo-List";
+
 function App() {
   // state stuff
   const [todo, setTodo] = useState("");
