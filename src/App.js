@@ -13,6 +13,7 @@ function App() {
   });
   const [validation, setValidation] = useState("");
   const [clicked, setClicked] = useState(false);
+  
 
   // saving and getting data from local storage
 
@@ -85,6 +86,7 @@ function App() {
             todo={todo}
             validation={validation}
             onCancel={handleSetClicked}
+            clicked = {clicked}
           />
         ) : null}
 

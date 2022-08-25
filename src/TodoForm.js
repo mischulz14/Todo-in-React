@@ -1,8 +1,16 @@
 import "./TodoForm.css";
+import {useEffect, useRef} from "react"
 
 
 export default function TodoForm(props) {
-    const {onTodoChange, todo, onFormSubmit, validation, onCancel} = props;
+    const {onTodoChange, todo, onFormSubmit, validation, onCancel, clicked} = props;
+    const inputRef = useRef();
+
+    useEffect(()=> {
+      if(clicked){
+        inputRef.current.focus()
+      }
+    }, [clicked])
 
   return (
     <>
@@ -13,6 +21,7 @@ export default function TodoForm(props) {
           type="text"
           placeholder="Task"
           value={todo}
+          ref={inputRef}
         />
         <div className="validation">{validation}</div>
         <div className="actions">
