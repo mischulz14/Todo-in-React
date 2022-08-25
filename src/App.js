@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
+import { IoAdd } from "react-icons/io5";
 
 function App() {
   // state stuff
@@ -10,6 +11,7 @@ function App() {
     if (localStorage.getItem("todoTaskList") === null) {
       return [];
     } else {
+      console.log(JSON.parse(localStorage.getItem("todoTaskList")));
       return JSON.parse(localStorage.getItem("todoTaskList"));
     }
   });
@@ -70,7 +72,7 @@ function App() {
     <div className="App">
       <div className="container">
         <button className="plus-btn" onClick={handleSetClicked}>
-          <span className={clicked ? "rotate" : ""}>+</span>
+          <IoAdd id="plus-btn-icon" className={clicked ? "rotate" : ""} />
         </button>
         {!clicked ? <div className="add-text">Add Todo</div> : null}
         {clicked ? (

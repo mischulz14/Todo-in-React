@@ -29,6 +29,12 @@ body {
   height: 100px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  transform-origin: center;
+}
+
+#plus-btn-icon{
   transition: all 0.2s ease-in-out;
 }
 

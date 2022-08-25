@@ -38,3 +38,9 @@ label {
   color: #b6b2c2;
   font-size: 1.3rem;
 }
+
+@media(max-width: 500px){
+  .todo-list {
+    width: 100%;
+  }
+}

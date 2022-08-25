@@ -20,7 +20,7 @@ export default function TodoItem(props) {
   return (
     <li className={props.todo.completed ? "line-through" : ""}>
       <div className="task-container">
-        <IoEllipse />
+        <IoEllipse className="ellipse" />
         <span className="task-text">{props.todo.task}</span>
       </div>
 
