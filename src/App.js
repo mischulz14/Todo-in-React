@@ -7,22 +7,16 @@ function App() {
   // state stuff
   const [todo, setTodo] = useState("");
   const [todoTaskList, setTodoTaskList] = useState(() => {
-    
+    if (localStorage.getItem("todoTaskList") === null) {
+      return [];
+    } else {
       return JSON.parse(localStorage.getItem("todoTaskList"));
-    
+    }
   });
   const [validation, setValidation] = useState("");
   const [clicked, setClicked] = useState(false);
-  
 
   // saving and getting data from local storage
-
-  useEffect(() => {
-    let todoListFromLocalStorage = JSON.parse(
-      localStorage.getItem("todoTaskList")
-    );
-    setTodoTaskList(todoListFromLocalStorage);
-  }, []);
 
   useEffect(() => {
     // saving everytime the todo gets changed
@@ -48,13 +42,13 @@ function App() {
       return;
     }
 
-    setTodoTaskList((prevList) => [
+    setTodoTaskList([
+      ...todoTaskList,
       {
-        id: Math.random() * 1000,
+        id: todoTaskList.length,
         task: todo,
         completed: false,
       },
-      ...prevList,
     ]);
 
     setTodo("");
@@ -86,7 +80,7 @@ function App() {
             todo={todo}
             validation={validation}
             onCancel={handleSetClicked}
-            clicked = {clicked}
+            clicked={clicked}
           />
         ) : null}
 

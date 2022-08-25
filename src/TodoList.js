@@ -20,7 +20,7 @@ export default function TodoList(props) {
       </select>
 
       <ul className="todo-list">
-        {todoFilter === "all"
+        {props.todoTaskList && todoFilter === "all"
           ? props.todoTaskList.map((todo) => (
               <TodoItem
                 todoTaskList={props.todoTaskList}
@@ -32,7 +32,8 @@ export default function TodoList(props) {
             ))
           : null}
 
-        {todoFilter === "completed" &&
+        {props.todoTaskList &&
+          todoFilter === "completed" &&
           props.todoTaskList.map((todo) => {
             if (todo.completed === true) {
               return (
@@ -49,7 +50,7 @@ export default function TodoList(props) {
             }
           })}
 
-        {todoFilter === "active" &&
+        {props.todoTaskList && todoFilter === "active" &&
           props.todoTaskList.map((todo) => {
             if (todo.completed === false) {
               return (
